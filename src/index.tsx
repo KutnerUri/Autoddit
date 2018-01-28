@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import { createStore } from 'redux';
-import { autoddit } from './reducers/index';
+import { reducer } from './reducers/index';
 import StoreState from './types/storeState';
 import { Provider } from 'react-redux';
 
@@ -40,7 +40,7 @@ const startingModel = {
 	}
 };
 
-const store = createStore<StoreState>(autoddit, startingModel);
+const store = createStore<StoreState>(reducer, startingModel);
 
 ReactDOM.render(
 	<Provider store={store}>
