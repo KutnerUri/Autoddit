@@ -2,7 +2,7 @@ import { VoteAction } from '../actions';
 import StoreState from '../types/storeState';
 import { UP_VOTE, DOWN_VOTE } from '../constants/index';
 
-export function reducer(state: StoreState, action: VoteAction): StoreState {
+export default function reducer(state: StoreState, action: VoteAction): StoreState {
 	var newScore;
 
 	switch (action.type) {

@@ -5,7 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import { createStore } from 'redux';
-import { reducer } from './reducers/index';
+import reducer from './reducers/index';
 import StoreState from './types/storeState';
 import { Provider } from 'react-redux';
 
