@@ -1,48 +1,43 @@
 import * as React from 'react';
 import StoreState from '../types/storeState';
 import { connect } from 'react-redux';
+import Tagline from './Tagline';
+import CommentsList from './commentsList';
 
 export interface ComponentProps {
-	commentIds: string[];
+	id: string;
+	text: string;
+	submissionTime: string;
+	userId: string;
 }
 
 export interface Props {
 	id: string;
 }
 
-interface State {
-	collapsed: boolean;
-}
-
-export class CommentsList extends React.PureComponent<ComponentProps, State> {
-	constructor(props: ComponentProps) {
-		super(props);
-
-		this.state = { collapsed: true };
-		this.toggleCollapse = this.toggleCollapse.bind(this);
-	}
-
-	toggleCollapse() {
-		this.setState({ collapsed: !this.state.collapsed });
-	}
-
+export class Comment extends React.PureComponent<ComponentProps> {
 	render() {
 		const props = this.props;
 
 		return (
-			<div className="autoddit-comments-list">
-				<a className="comments-collapse" onClick={this.toggleCollapse} href="javascript:;">
-					{this.state.collapsed ? (props.commentIds.length + ' comments') : 'collapse'}
-				</a>
+			<div className="autoddit-comment">
+				<div>{props.text}</div>
+				<Tagline submissionTime={props.submissionTime} userId={props.userId} />
+				<CommentsList id={props.id} />
 			</div>
 		);
 	}
 }
 
 export function mapStateToProps({ comments }: StoreState, { id }: Props): ComponentProps {
+	var comment = comments.byId[id];
+
 	return {
-		commentIds: comments.byOwner[id]
+		id: id,
+		text: comment.text,
+		submissionTime: comment.submissionTime,
+		userId: comment.userId
 	};
 }
 
-export default connect(mapStateToProps)(CommentsList);
+export default connect(mapStateToProps)(Comment);

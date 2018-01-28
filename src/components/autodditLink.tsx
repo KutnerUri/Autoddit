@@ -1,8 +1,8 @@
 import * as React from 'react';
 import '../styles/autodditLink.css';
-import Username from '../containers/username';
 import ItemVote from './vote';
-import CommentsList from './comment';
+import CommentsList from './commentsList';
+import Tagline from './Tagline';
 
 export interface Props {
 	id: string;
@@ -22,7 +22,7 @@ class AutodditLink extends React.PureComponent<Props, object> {
 				<img className="link-img" src={props.imageUrl} />
 				<div className="link-content">
 					<p className="title">title</p>
-					<p className="tagline">Submitted on {props.submissionTime} by <Username id={props.userId} /></p>
+					<Tagline submissionTime={props.submissionTime} userId={props.userId}/>
 					<CommentsList id={props.id}/>
 				</div>
 			</div>
