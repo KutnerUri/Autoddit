@@ -28,7 +28,7 @@ export default interface StoreState {
 	};
 
 	votes: {
-		[type: number]: {
+		[type: string]: {
 			[index: number]: { score: number }
 		}
 	};

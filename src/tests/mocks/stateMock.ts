@@ -1,4 +1,4 @@
-import IStoreState from '../../types/storeState'
+import IStoreState from '../../types/storeState';
 
 export default function getMockedStoreState(): IStoreState {
 	return {
@@ -13,5 +13,5 @@ export default function getMockedStoreState(): IStoreState {
 		},
 		votes: {
 		}
-	}
+	};
 }

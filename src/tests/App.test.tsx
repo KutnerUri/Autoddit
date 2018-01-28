@@ -21,7 +21,7 @@ it('renders without crashing', () => {
 	ReactDOM.render(dom, div);
 });
 
-function getMockModel(){
+function getMockModel(): StoreState {
 	return {
 		links: {
 			byId: {

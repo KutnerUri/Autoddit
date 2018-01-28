@@ -2,10 +2,10 @@ import reducer from '../../reducers/index';
 import * as constants from '../../constants/index';
 import generateMockState from '../mocks/stateMock';
 
-const voteCategory = "voteCategory";
+const voteCategory = 'voteCategory';
 const voteItemId = 5;
 
-it("UP_VOTE should increment score, when it exists", function () {
+it('UP_VOTE should increment score, when it exists', function () {
 	var state = generateMockState();
 	state.votes[voteCategory] = { [voteItemId]: { score: 1 } };
 
@@ -20,7 +20,7 @@ it("UP_VOTE should increment score, when it exists", function () {
 	expect(result).toEqual(expectedState);
 });
 
-it("DOWN_VOTE should dencrement score, when it exists", function () {
+it('DOWN_VOTE should dencrement score, when it exists', function () {
 	var state = generateMockState();
 	state.votes[voteCategory] = { [voteItemId]: { score: 2 } };
 
