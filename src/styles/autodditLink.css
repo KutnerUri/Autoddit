@@ -1,0 +1,41 @@
+.autoddit-link {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid black;
+}
+
+.autoddit-link .link-img {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	
+	margin: 0 5px 5px 2px;
+}
+
+.autoddit-link .votes {
+	display: inline-block;
+}
+
+.autoddit-link .link-content {
+	display: inline-block;
+	text-align: left;
+}
+
+.autoddit-link .title {
+	font-size: medium;
+    font-weight: normal;
+	margin-bottom: 1px;
+	color: #0000ff;
+    overflow: hidden;
+    unicode-bidi: isolate;
+}
+
+.autoddit-link .tagline {
+	color: #888;
+    font-size: x-small;
+}
+
+.autoddit-link .buttons .comments {
+    padding-right: 4px;
+	font-size: x-small;
+}
