@@ -18,8 +18,10 @@ export default interface StoreState {
 	};
 
 	comments: {
-		byLinkIdOrdered: {
-			[index: number]: number[]
+		byOwner: {
+			[type: string]: {
+				[index: number]: number[]
+			}
 		},
 		byId: {
 

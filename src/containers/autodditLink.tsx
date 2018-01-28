@@ -8,15 +8,13 @@ export interface Props {
 
 export function mapStateToProps({ links, comments }: StoreState, { id }: Props): ComponentProps {
 	var link = links.byId[id];
-	var commentIds = comments.byLinkIdOrdered[id];
 
 	return {
 		id: id,
 		title: link.title,
 		imageUrl: link.imageUrl,
 		submissionTime: link.submissionTime,
-		userId: link.userId,
-		commentCount: commentIds.length
+		userId: link.userId
 	};
 }
 

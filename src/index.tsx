@@ -25,8 +25,10 @@ const startingModel = {
 		5: { username: 'bugatti' }
 	},
 	comments: {
-		byLinkIdOrdered: {
-			1: [6, 2]
+		byOwner: {
+			links: {
+				1: [6, 2]
+			}
 		},
 		byId: {
 			6: {},

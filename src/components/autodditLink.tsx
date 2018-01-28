@@ -2,6 +2,7 @@ import * as React from 'react';
 import '../styles/autodditLink.css';
 import Username from '../containers/username';
 import ItemVote from './vote';
+import CommentsList from './comment';
 
 export interface Props {
 	id: number;
@@ -9,7 +10,6 @@ export interface Props {
 	imageUrl: string;
 	submissionTime: string;
 	userId: number;
-	commentCount: number;
 }
 
 class AutodditLink extends React.PureComponent<Props, object> {
@@ -23,10 +23,7 @@ class AutodditLink extends React.PureComponent<Props, object> {
 				<div className="link-content">
 					<p className="title">title</p>
 					<p className="tagline">Submitted on {props.submissionTime} by <Username id={props.userId} /></p>
-
-					<div className="buttons">
-						<div className="comments">{props.commentCount} comments</div>
-					</div>
+					<CommentsList type="links" id={props.id}/>
 				</div>
 			</div>
 		);

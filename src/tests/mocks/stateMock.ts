@@ -8,7 +8,7 @@ export default function getMockedStoreState(): IStoreState {
 		},
 		users: {},
 		comments: {
-			byLinkIdOrdered: {},
+			byOwner: {},
 			byId: {}
 		},
 		votes: {
