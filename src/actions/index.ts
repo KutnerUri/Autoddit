@@ -2,30 +2,26 @@ import * as constants from '../constants/index';
 
 export interface UpVote {
 	type: constants.UP_VOTE;
-	itemType: string;
-	itemId: number;
+	itemId: string;
 }
 
 export interface DownVote {
 	type: constants.DOWN_VOTE;
-	itemType: string;
-	itemId: number;
+	itemId: string;
 }
 
 export type VoteAction = UpVote | DownVote;
 
-export function upVote(type: string, id: number): UpVote {
+export function upVote(id: string): UpVote {
 	return {
 		type: constants.UP_VOTE,
-		itemType: type,
 		itemId: id
 	};
 }
 
-export function downVote(type: string, id: number): DownVote {
+export function downVote(id: string): DownVote {
 	return {
 		type: constants.DOWN_VOTE,
-		itemType: type,
 		itemId: id
 	};
 }

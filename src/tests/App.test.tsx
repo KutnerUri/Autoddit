@@ -25,31 +25,29 @@ function getMockModel(): StoreState {
 	return {
 		links: {
 			byId: {
-				1: {
+				'link1': {
 					title: 'hello',
 					imageUrl: 'https://www.visit-dorset.com/dbimgs/icon_instagram(1).png',
 					submissionTime: 'Jan 22, 2017 08:43',
-					userId: 5
+					userId: 'user5'
 				}
 			},
-			orderedIds: [1]
+			orderedIds: ['link1']
 		},
 		users: {
-			5: { username: 'bugatti' }
+			'user5': { username: 'bugatti' }
 		},
 		comments: {
-			byLinkIdOrdered: {
-				1: [6, 2]
+			byOwner: {
+				'link1': ['comment6', 'comment2']
 			},
 			byId: {
-				6: {},
-				2: {}
+				'comment6': {},
+				'comment2': {}
 			}
 		},
 		votes: {
-			links: {
-				1: { score: 7 }
-			}
+			'link1': { score: 7 }
 		}
 	};
 }

@@ -5,11 +5,11 @@ import ItemVote from './vote';
 import CommentsList from './comment';
 
 export interface Props {
-	id: number;
+	id: string;
 	title: string;
 	imageUrl: string;
 	submissionTime: string;
-	userId: number;
+	userId: string;
 }
 
 class AutodditLink extends React.PureComponent<Props, object> {
@@ -18,12 +18,12 @@ class AutodditLink extends React.PureComponent<Props, object> {
 
 		return (
 			<div className="autoddit-link">
-				<ItemVote type="links" id={props.id}/>
+				<ItemVote id={props.id}/>
 				<img className="link-img" src={props.imageUrl} />
 				<div className="link-content">
 					<p className="title">title</p>
 					<p className="tagline">Submitted on {props.submissionTime} by <Username id={props.userId} /></p>
-					<CommentsList type="links" id={props.id}/>
+					<CommentsList id={props.id}/>
 				</div>
 			</div>
 		);

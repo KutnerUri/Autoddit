@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 const logo = require('./logo.svg');
 
 export interface Props {
-	links: number[];
+	links: string[];
 }
 
 class App extends React.Component<Props> {

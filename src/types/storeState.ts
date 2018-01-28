@@ -1,37 +1,31 @@
 export default interface StoreState {
 	links: {
 		byId: {
-			[index: number]: {
+			[index: string]: {
 				title: string;
 				imageUrl: string;
 				submissionTime: string;
-				userId: number;
+				userId: string;
 			}
 		},
-		orderedIds: number[]
+		orderedIds: string[]
 	};
 
 	users: {
-		[index: number]: {
+		[index: string]: {
 			username: string
 		}
 	};
 
 	comments: {
 		byOwner: {
-			[type: string]: {
-				[index: number]: number[]
-			}
+			[index: string]: string[]
 		},
-		byId: {
-
-		}
+		byId: {}
 
 	};
 
 	votes: {
-		[type: string]: {
-			[index: number]: { score: number }
-		}
+		[index: string]: { score: number }
 	};
 }

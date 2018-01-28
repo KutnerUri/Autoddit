@@ -3,7 +3,7 @@ import StoreState from '../types/storeState';
 import { connect } from 'react-redux';
 
 export interface Props {
-	id: number;
+	id: string;
 }
 
 export function mapStateToProps({ links, comments }: StoreState, { id }: Props): ComponentProps {

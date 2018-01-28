@@ -3,12 +3,11 @@ import StoreState from '../types/storeState';
 import { connect } from 'react-redux';
 
 export interface ComponentProps {
-	commentIds: number[];
+	commentIds: string[];
 }
 
 export interface Props {
-	type: number;
-	id: number;
+	id: string;
 }
 
 interface State {
@@ -40,11 +39,9 @@ export class CommentsList extends React.PureComponent<ComponentProps, State> {
 	}
 }
 
-export function mapStateToProps({ comments }: StoreState, { id, type }: Props): ComponentProps {
-	var commentsByType = comments.byOwner[type] || {};
-
+export function mapStateToProps({ comments }: StoreState, { id }: Props): ComponentProps {
 	return {
-		commentIds: commentsByType[id]
+		commentIds: comments.byOwner[id]
 	};
 }
 

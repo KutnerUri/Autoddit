@@ -10,8 +10,7 @@ export interface ComponentProps {
 }
 
 export interface Props {
-	id: number;
-	type: string;
+	id: string;
 }
 
 export class ItemVote extends React.PureComponent<ComponentProps, object> {
@@ -28,16 +27,14 @@ export class ItemVote extends React.PureComponent<ComponentProps, object> {
 	}
 }
 
-export function mapStateToProps({ votes }: StoreState, { id, type }: Props): ComponentProps {
-	var votesByType = votes[type];
-
-	return votesByType[id];
+export function mapStateToProps({ votes }: StoreState, { id }: Props): ComponentProps {
+	return votes[id];
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.VoteAction>, ownProps: Props) {
 	return {
-		upVote: () => dispatch(actions.upVote(ownProps.type, ownProps.id)),
-		downVote: () => dispatch(actions.downVote(ownProps.type, ownProps.id))
+		upVote: () => dispatch(actions.upVote(ownProps.id)),
+		downVote: () => dispatch(actions.downVote(ownProps.id))
 	};
 }
 
