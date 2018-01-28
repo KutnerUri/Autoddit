@@ -2,7 +2,6 @@ import reducer from '../../reducers/index';
 import * as constants from '../../constants/index';
 import generateMockState from '../mocks/stateMock';
 
-const voteCategory = 'voteCategory';
 const voteItemId = 'someItem5';
 
 it('UP_VOTE should increment score, when it exists', function () {
