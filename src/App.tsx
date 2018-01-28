@@ -1,12 +1,16 @@
 import * as React from 'react';
 import './App.css';
 import AutodditLink from './containers/autodditLink';
+import Login from './components/login';
 import StoreState from './types/storeState';
 import { connect } from 'react-redux';
 
 const logo = require('./logo.svg');
 
 export interface Props {
+	loggedInUser?: {
+		username: string;
+	};
 	links: string[];
 }
 
@@ -18,18 +22,26 @@ class App extends React.Component<Props> {
 					<img src={logo} className="App-logo" alt="logo" />
 					<h1 className="App-title">Welcome to React</h1>
 				</header>
-				<div className="App-intro">
-					{this.props.links.map(linkId =>
-						(<AutodditLink key={linkId} id={linkId} />))}
-				</div>
+
+				{this.props.loggedInUser ? this.renderLinks() : <Login />}
+			</div>
+		);
+	}
+
+	renderLinks() {
+		return (
+			<div className="App-intro">
+				{this.props.links.map(linkId =>
+					(<AutodditLink key={linkId} id={linkId} />))}
 			</div>
 		);
 	}
 }
 
-export function mapStateToProps({ links }: StoreState): Props {
+export function mapStateToProps({ links, loggedInUser }: StoreState): Props {
 	return {
-		links: links.orderedIds
+		links: (links || { orderedIds: [] }).orderedIds,
+		loggedInUser: loggedInUser
 	};
 }
 

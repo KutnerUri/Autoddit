@@ -1,33 +1,18 @@
-import { VoteAction } from '../actions';
+import voteReducer from './voteReducer';
+import loginReducer from './loginReducer';
 import StoreState from '../types/storeState';
-import { UP_VOTE, DOWN_VOTE } from '../constants/index';
+import { AnyAction } from '../actions/index';
+import { UP_VOTE, DOWN_VOTE, LOGIN } from '../constants/index';
 
-export default function reducer(state: StoreState, action: VoteAction): StoreState {
-	var newScore;
-
+export default function reducer(state: StoreState, action: AnyAction): StoreState {
 	switch (action.type) {
 		case UP_VOTE:
-			newScore = getScore(action.itemId) + 1;
-			return genNewState(action.itemId, newScore);
+			return voteReducer(state, action);
 		case DOWN_VOTE:
-			newScore = getScore(action.itemId) - 1;
-			return genNewState(action.itemId, newScore);
+			return voteReducer(state, action);
+		case LOGIN:
+			return loginReducer(state, action);
 		default:
 			return state;
-	}
-
-	function getScore(id: string): number {
-		if (!state.votes[id]) {
-			return 0;
-		}
-
-		return state.votes[id].score;
-	}
-
-	function genNewState(id: string, score: number): StoreState {
-		var newState = { ...state };
-		newState.votes[id] = { score: score };
-
-		return newState;
 	}
 }

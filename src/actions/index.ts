@@ -25,3 +25,19 @@ export function downVote(id: string): DownVote {
 		itemId: id
 	};
 }
+
+export interface Login {
+	type: constants.LOGIN;
+	username: string;
+}
+
+export type LoginAction = Login;
+
+export function login(username: string): Login {
+	return {
+		type: constants.LOGIN,
+		username: username
+	};
+}
+
+export type AnyAction = LoginAction | VoteAction;

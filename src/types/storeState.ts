@@ -1,4 +1,8 @@
 export default interface StoreState {
+	loggedInUser?: {
+		username: string;
+	};
+
 	links: {
 		byId: {
 			[index: string]: {
