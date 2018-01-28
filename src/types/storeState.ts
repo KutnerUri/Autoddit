@@ -5,19 +5,31 @@ export default interface StoreState {
 				title: string;
 				imageUrl: string;
 				submissionTime: string;
-				userId: string;
+				userId: number;
 			}
 		},
 		orderedIds: number[]
 	};
 
 	users: {
-		[index: string]: {
+		[index: number]: {
 			username: string
 		}
 	};
 
 	comments: {
+		byLinkIdOrdered: {
+			[index: number]: number[]
+		},
+		byId: {
 
+		}
+
+	};
+
+	votes: {
+		[type: number]: {
+			[index: number]: { score: number }
+		}
 	};
 }

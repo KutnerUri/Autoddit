@@ -16,15 +16,28 @@ const startingModel = {
 				title: 'hello',
 				imageUrl: 'https://www.visit-dorset.com/dbimgs/icon_instagram(1).png',
 				submissionTime: 'Jan 22, 2017 08:43',
-				userId: '5'
+				userId: 5
 			}
 		},
 		orderedIds: [1, 1]
 	},
 	users: {
-		'5': { username: 'bugatti' }
+		5: { username: 'bugatti' }
 	},
-	comments: {}
+	comments: {
+		byLinkIdOrdered: {
+			1: [6, 2]
+		},
+		byId: {
+			6: {},
+			2: {}
+		}
+	},
+	votes: {
+		links: {
+			1: { score: 7 }
+		}
+	}
 };
 
 const store = createStore<StoreState>(autoddit, startingModel);
