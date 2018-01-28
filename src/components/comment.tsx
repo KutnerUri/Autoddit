@@ -3,6 +3,7 @@ import StoreState from '../types/storeState';
 import { connect } from 'react-redux';
 import Tagline from './Tagline';
 import CommentsList from './commentsList';
+import Vote from './vote';
 
 export interface ComponentProps {
 	id: string;
@@ -21,6 +22,7 @@ export class Comment extends React.PureComponent<ComponentProps> {
 
 		return (
 			<div className="autoddit-comment">
+				<Vote id={props.id} />
 				<div>{props.text}</div>
 				<Tagline submissionTime={props.submissionTime} userId={props.userId} />
 				<CommentsList id={props.id} />

@@ -3,14 +3,14 @@ import StoreState from '../types/storeState';
 import { connect, Dispatch } from 'react-redux';
 import * as actions from '../actions/index';
 
+export interface Props {
+	id: string;
+}
+
 export interface ComponentProps {
 	score: number;
 	upVote?: () => void;
 	downVote?: () => void;
-}
-
-export interface Props {
-	id: string;
 }
 
 export class ItemVote extends React.PureComponent<ComponentProps, object> {
@@ -28,7 +28,7 @@ export class ItemVote extends React.PureComponent<ComponentProps, object> {
 }
 
 export function mapStateToProps({ votes }: StoreState, { id }: Props): ComponentProps {
-	return votes[id];
+	return votes[id] || { score: 0 };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.VoteAction>, ownProps: Props) {

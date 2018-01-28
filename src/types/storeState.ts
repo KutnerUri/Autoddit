@@ -21,8 +21,13 @@ export default interface StoreState {
 		byOwner: {
 			[index: string]: string[]
 		},
-		byId: {}
-
+		byId: {
+			[index: string]: {
+				text: string;
+				submissionTime: string;
+				userId: string;
+			}
+		}
 	};
 
 	votes: {

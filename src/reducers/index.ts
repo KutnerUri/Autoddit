@@ -8,15 +8,26 @@ export default function reducer(state: StoreState, action: VoteAction): StoreSta
 	switch (action.type) {
 		case UP_VOTE:
 			newScore = getScore(action.itemId) + 1;
-			return { ...state, votes: { [action.itemId]: { score: newScore } } };
+			return genNewState(action.itemId, newScore);
 		case DOWN_VOTE:
 			newScore = getScore(action.itemId) - 1;
-			return { ...state, votes: { [action.itemId]: { score: newScore } } };
+			return genNewState(action.itemId, newScore);
 		default:
 			return state;
 	}
 
-	function getScore(id: string) {
+	function getScore(id: string): number {
+		if (!state.votes[id]) {
+			return 0;
+		}
+
 		return state.votes[id].score;
+	}
+
+	function genNewState(id: string, score: number): StoreState {
+		var newState = { ...state };
+		newState.votes[id] = { score: score };
+
+		return newState;
 	}
 }
