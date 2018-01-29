@@ -1,23 +1,17 @@
 import * as React from 'react';
-import StoreState from '../types/storeState';
-import { connect } from 'react-redux';
 import Tagline from './Tagline';
-import CommentsList from './commentsList';
-import Vote from './vote';
-import CommentCreator from './commentCreator';
+import CommentsList from '../containers/commentsList';
+import CommentCreator from '../containers/commentCreator';
+import Vote from '../containers/itemVote';
 
-export interface ComponentProps {
+export interface Props {
 	id: string;
 	text: string;
 	submissionTime: string;
 	userId: string;
 }
 
-export interface Props {
-	id: string;
-}
-
-export class Comment extends React.PureComponent<ComponentProps> {
+export default class Comment extends React.PureComponent<Props> {
 	render() {
 		const props = this.props;
 
@@ -32,16 +26,3 @@ export class Comment extends React.PureComponent<ComponentProps> {
 		);
 	}
 }
-
-export function mapStateToProps({ comments }: StoreState, { id }: Props): ComponentProps {
-	var comment = comments.byId[id];
-
-	return {
-		id: id,
-		text: comment.text,
-		submissionTime: comment.submissionTime,
-		userId: comment.userId
-	};
-}
-
-export default connect(mapStateToProps)(Comment);

@@ -1,35 +1,10 @@
-import * as React from 'react';
+import ItemVote, { Props as ComponentProps } from '../components/itemVote';
 import StoreState from '../types/storeState';
 import { connect, Dispatch } from 'react-redux';
 import * as actions from '../actions/index';
 
 export interface Props {
 	id: string;
-}
-
-export interface ComponentProps {
-	score: number;
-	canUserVote: boolean;
-	upVote?: () => void;
-	downVote?: () => void;
-}
-
-export class ItemVote extends React.PureComponent<ComponentProps, object> {
-	render() {
-		var props = this.props;
-
-		return (
-			<div className="votes">
-				{this.props.canUserVote &&
-					<button onClick={props.upVote}>up</button>
-				}
-				{props.score}
-				{this.props.canUserVote &&
-					<button onClick={props.downVote}>down</button>
-				}
-			</div>
-		);
-	}
 }
 
 export function mapStateToProps({ votes, userVotes, loggedInUser }: StoreState, { id }: Props): ComponentProps {

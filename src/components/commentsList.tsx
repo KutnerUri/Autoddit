@@ -1,18 +1,12 @@
 import * as React from 'react';
-import StoreState from '../types/storeState';
-import { connect } from 'react-redux';
-import Comment from './comment';
 import Collapser from './collapser';
+import Comment from '../containers/comment';
 
-export interface ComponentProps {
+export interface Props {
 	commentIds: string[];
 }
 
-export interface Props {
-	id: string;
-}
-
-export class CommentsList extends React.PureComponent<ComponentProps> {
+export default class CommentsList extends React.PureComponent<Props> {
 	render() {
 		const props = this.props;
 
@@ -25,11 +19,3 @@ export class CommentsList extends React.PureComponent<ComponentProps> {
 		);
 	}
 }
-
-export function mapStateToProps({ comments }: StoreState, { id }: Props): ComponentProps {
-	return {
-		commentIds: comments.byOwner[id] || []
-	};
-}
-
-export default connect(mapStateToProps)(CommentsList);

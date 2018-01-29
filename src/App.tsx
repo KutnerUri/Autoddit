@@ -1,10 +1,10 @@
 import * as React from 'react';
 import './App.css';
 import AutodditLink from './containers/autodditLink';
-import Login from './components/login';
+import Login from './containers/login';
+import LinkCreator from './containers/linkCreator';
 import StoreState from './types/storeState';
 import { connect } from 'react-redux';
-import LinkCreator from './components/LinkCreator';
 
 const logo = require('./logo.svg');
 

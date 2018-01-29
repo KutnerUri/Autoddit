@@ -1,14 +1,12 @@
 import * as React from 'react';
 import Collapser from './collapser';
-import { connect, Dispatch } from 'react-redux';
-import * as actions from '../actions/index';
 
-export interface ComponentProps {
+export interface Props {
 	createLink: (title: string, imageUrl: string) => void;
 }
 
-export class LinkCreator extends React.Component<ComponentProps, { text: string, imageUrl: string }> {
-	constructor(props: ComponentProps) {
+export default class LinkCreator extends React.Component<Props, { text: string, imageUrl: string }> {
+	constructor(props: Props) {
 		super(props);
 
 		this.state = {
@@ -66,11 +64,3 @@ function LinkPreview(text: string, imageUrl: string) {
 		</div>
 	);
 }
-
-export function mapDispatchToProps(dispatch: Dispatch<actions.CreateLink>): ComponentProps {
-	return {
-		createLink: (title: string, imageUrl: string) => dispatch(actions.CreateLink(title, imageUrl))
-	};
-}
-
-export default connect(undefined, mapDispatchToProps)(LinkCreator);
