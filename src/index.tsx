@@ -21,6 +21,7 @@ registerServiceWorker();
 
 function genDefaultModel(): StoreState {
 	return {
+		loggedInUser: { userId: 'moshe' },
 		links: {
 			byId: {
 				'link1': {
@@ -30,10 +31,11 @@ function genDefaultModel(): StoreState {
 					userId: 'user5'
 				}
 			},
-			orderedIds: ['link1', 'link1']
+			orderedIds: ['link1']
 		},
 		users: {
-			'user5': { username: 'bugatti' }
+			'user5': { username: 'bugatti' },
+			'moshe': { username: 'moshe' }
 		},
 		comments: {
 			byOwner: {

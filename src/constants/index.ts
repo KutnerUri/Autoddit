@@ -6,3 +6,6 @@ export type DOWN_VOTE = typeof DOWN_VOTE;
 
 export const LOGIN = 'LOGIN';
 export type LOGIN = typeof LOGIN;
+
+export const CREATE_LINK = 'CREATE_LINK';
+export type CREATE_LINK = typeof CREATE_LINK;

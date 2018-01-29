@@ -40,4 +40,20 @@ export function login(username: string): Login {
 	};
 }
 
-export type AnyAction = LoginAction | VoteAction;
+export interface CreateLink {
+	type: constants.CREATE_LINK;
+	title: string;
+	imageUrl: string;
+}
+
+export type CreateLinkAction = CreateLink;
+
+export function CreateLink(title: string, imageUrl: string): CreateLinkAction {
+	return {
+		type: constants.CREATE_LINK,
+		title: title,
+		imageUrl: imageUrl
+	};
+}
+
+export type AnyAction = LoginAction | CreateLinkAction | VoteAction;

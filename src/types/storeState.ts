@@ -1,16 +1,18 @@
+export interface Link {
+	title: string;
+	imageUrl: string;
+	submissionTime: string;
+	userId: string;
+}
+
 export default interface StoreState {
 	loggedInUser?: {
-		username: string;
+		userId: string;
 	};
 
 	links: {
 		byId: {
-			[index: string]: {
-				title: string;
-				imageUrl: string;
-				submissionTime: string;
-				userId: string;
-			}
+			[index: string]: Link;
 		},
 		orderedIds: string[]
 	};

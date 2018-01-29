@@ -6,10 +6,19 @@ export default function reducer(state: StoreState, action: LoginAction): StoreSt
 	if (action.type !== LOGIN) {
 		return state;
 	}
-	
+
 	if (action.username === '') {
 		return state;
 	}
-	
-	return { ...state, loggedInUser: { username: action.username } };
+
+	return {
+		...state,
+		loggedInUser: { userId: action.username },
+		users: {
+			...state.users,
+			[action.username]: {
+				username: action.username
+			}
+		}
+	};
 }

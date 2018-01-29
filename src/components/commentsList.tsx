@@ -2,6 +2,7 @@ import * as React from 'react';
 import StoreState from '../types/storeState';
 import { connect } from 'react-redux';
 import Comment from './comment';
+import Collapser from './collapser';
 
 export interface ComponentProps {
 	commentIds: string[];
@@ -11,43 +12,16 @@ export interface Props {
 	id: string;
 }
 
-interface State {
-	collapsed: boolean;
-}
-
-export class CommentsList extends React.PureComponent<ComponentProps, State> {
-	constructor(props: ComponentProps) {
-		super(props);
-
-		this.state = { collapsed: true };
-		this.toggleCollapse = this.toggleCollapse.bind(this);
-	}
-
-	toggleCollapse() {
-		this.setState({ collapsed: !this.state.collapsed });
-	}
-
+export class CommentsList extends React.PureComponent<ComponentProps> {
 	render() {
 		const props = this.props;
 
-		const commentsBlocks = this.state.collapsed ? '' : this.renderCommentsList();
-
 		return (
-			<div className="autoddit-comments-list">
-				<a className="comments-collapse" onClick={this.toggleCollapse} href="javascript:;">
-					{this.state.collapsed ? (props.commentIds.length + ' comments') : 'collapse'}
-				</a>
-
-				{commentsBlocks}
-			</div>
-		);
-	}
-
-	renderCommentsList() {
-		return (
-			<div className="autoddit-comments-container">
-				{this.props.commentIds.map(id => <Comment key={id} id={id} /> )}
-			</div>
+			<Collapser className="autoddit-comments-list" label={props.commentIds.length + ' comments'} alt="collapse">
+				<div className="autoddit-comments-container">
+					{this.props.commentIds.map(id => <Comment key={id} id={id} /> )}
+				</div>
+			</Collapser>
 		);
 	}
 }

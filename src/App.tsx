@@ -4,12 +4,13 @@ import AutodditLink from './containers/autodditLink';
 import Login from './components/login';
 import StoreState from './types/storeState';
 import { connect } from 'react-redux';
+import LinkCreator from './components/LinkCreator';
 
 const logo = require('./logo.svg');
 
 export interface Props {
 	loggedInUser?: {
-		username: string;
+		userId: string;
 	};
 	links: string[];
 }
@@ -31,6 +32,7 @@ class App extends React.Component<Props> {
 	renderLinks() {
 		return (
 			<div className="App-intro">
+				<LinkCreator />
 				{this.props.links.map(linkId =>
 					(<AutodditLink key={linkId} id={linkId} />))}
 			</div>
