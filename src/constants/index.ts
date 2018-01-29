@@ -9,3 +9,6 @@ export type LOGIN = typeof LOGIN;
 
 export const CREATE_LINK = 'CREATE_LINK';
 export type CREATE_LINK = typeof CREATE_LINK;
+
+export const CREATE_COMMENT = 'CREATE_COMMENT';
+export type CREATE_COMMENT = typeof CREATE_COMMENT;

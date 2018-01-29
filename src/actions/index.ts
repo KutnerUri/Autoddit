@@ -56,4 +56,20 @@ export function CreateLink(title: string, imageUrl: string): CreateLinkAction {
 	};
 }
 
-export type AnyAction = LoginAction | CreateLinkAction | VoteAction;
+export interface CreateComment {
+	type: constants.CREATE_COMMENT;
+	title: string;
+	ownerId: string;
+}
+
+export type CreateCommentAction = CreateComment;
+
+export function CreateComment(title: string, ownerId: string): CreateCommentAction {
+	return {
+		type: constants.CREATE_COMMENT,
+		title: title,
+		ownerId: ownerId
+	};
+}
+
+export type AnyAction = LoginAction | CreateLinkAction | CreateCommentAction | VoteAction;

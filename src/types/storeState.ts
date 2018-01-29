@@ -5,6 +5,12 @@ export interface Link {
 	userId: string;
 }
 
+export interface Comment {
+	text: string;
+	submissionTime: string;
+	userId: string;
+}
+
 export default interface StoreState {
 	loggedInUser?: {
 		userId: string;
@@ -28,11 +34,7 @@ export default interface StoreState {
 			[index: string]: string[]
 		},
 		byId: {
-			[index: string]: {
-				text: string;
-				submissionTime: string;
-				userId: string;
-			}
+			[index: string]: Comment;
 		}
 	};
 

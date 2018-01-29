@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Tagline from './Tagline';
 import CommentsList from './commentsList';
 import Vote from './vote';
+import CommentCreator from './commentCreator';
 
 export interface ComponentProps {
 	id: string;
@@ -25,6 +26,7 @@ export class Comment extends React.PureComponent<ComponentProps> {
 				<Vote id={props.id} />
 				<div>{props.text}</div>
 				<Tagline submissionTime={props.submissionTime} userId={props.userId} />
+				<CommentCreator ownerId={props.id}/>
 				<CommentsList id={props.id} />
 			</div>
 		);
