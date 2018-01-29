@@ -14,11 +14,13 @@ export default class ItemVote extends React.PureComponent<Props, object> {
 		return (
 			<div className="votes">
 				{this.props.canUserVote &&
-					<button onClick={props.upVote}>up</button>
+					<span className="fa fa-arrow-up" onClick={props.upVote}/>
 				}
+				<br/>
 				{props.score}
+				<br/>
 				{this.props.canUserVote &&
-					<button onClick={props.downVote}>down</button>
+					<span className="fa fa-arrow-down" onClick={props.downVote}/>
 				}
 			</div>
 		);

@@ -1,0 +1,14 @@
+/* layout: */
+.autoddit-comment {
+	display: flex;
+	flex-flow: row;
+}
+
+.autoddit-comment .votes {
+	flex: 0 1 auto;
+}
+
+.autoddit-comment .content {
+	flex: 1 1 auto;
+	text-align: left;
+}

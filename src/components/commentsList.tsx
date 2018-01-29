@@ -11,7 +11,7 @@ export default class CommentsList extends React.PureComponent<Props> {
 		const props = this.props;
 
 		return (
-			<Collapser className="autoddit-comments-list" label={props.commentIds.length + ' comments'} alt="collapse">
+			<Collapser className="comments-list" label={props.commentIds.length + ' comments'} alt="collapse comments">
 				<div className="autoddit-comments-container">
 					{this.props.commentIds.map(id => <Comment key={id} id={id} /> )}
 				</div>

@@ -9,7 +9,7 @@ export interface Props {
 export default class Tagline extends React.PureComponent<Props, object> {
 	render() {
 		return (
-			<p className="tagline">Submitted on {this.props.submissionTime} by <Username id={this.props.userId} /></p>
+			<div className="tagline">Submitted on {this.props.submissionTime} by <Username id={this.props.userId} /></div>
 		);
 	}
 }

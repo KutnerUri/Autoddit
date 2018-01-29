@@ -3,6 +3,7 @@ import Tagline from './Tagline';
 import CommentsList from '../containers/commentsList';
 import CommentCreator from '../containers/commentCreator';
 import Vote from '../containers/itemVote';
+import '../styles/comment.css';
 
 export interface Props {
 	id: string;
@@ -18,10 +19,13 @@ export default class Comment extends React.PureComponent<Props> {
 		return (
 			<div className="autoddit-comment">
 				<Vote id={props.id} />
-				<div>{props.text}</div>
-				<Tagline submissionTime={props.submissionTime} userId={props.userId} />
+				<div className="content">
+					{props.text}
+					<br/>
+					<Tagline submissionTime={props.submissionTime} userId={props.userId} />
 				<CommentCreator ownerId={props.id}/>
 				<CommentsList id={props.id} />
+				</div>
 			</div>
 		);
 	}

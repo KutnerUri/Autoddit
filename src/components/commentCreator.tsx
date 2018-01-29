@@ -37,8 +37,8 @@ export default class CommentCreator extends React.Component<Props, { collapsed: 
 
 	render() {
 		return (
-			<div>
-				<a onClick={this.toggleCollapse} href="javascript:;">
+			<div className="comment-creator">
+				<a className="label" onClick={this.toggleCollapse} href="javascript:;">
 					{this.state.collapsed ? 'add comment' : 'collapse'}
 				</a>
 				
