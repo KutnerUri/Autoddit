@@ -6,7 +6,8 @@ import LinkCreator from './containers/linkCreator';
 import StoreState from './types/storeState';
 import { connect } from 'react-redux';
 
-const logo = require('./logo.svg');
+const logo = require('./mixup.png');
+// const logo = './mixup.png';
 
 export interface Props {
 	loggedInUser?: {
@@ -21,7 +22,6 @@ class App extends React.Component<Props> {
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">Welcome to React</h1>
 				</header>
 
 				{this.props.loggedInUser ? this.renderLinks() : <Login />}

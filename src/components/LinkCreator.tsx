@@ -1,4 +1,5 @@
 import * as React from 'react';
+import '../styles/linkCreator.css';
 
 export interface Props {
 	createLink: (title: string, imageUrl: string) => void;
@@ -46,7 +47,7 @@ export default class LinkCreator extends React.Component<Props, State> {
 			<div>
 				<div>
 					<a onClick={this.toggleCollapse} href="javascript:;">
-						{this.state.collapsed ? 'add link!' : 'collapse'}
+						{this.state.collapsed ? 'add a link!' : 'collapse'}
 					</a>
 				</div>
 				{!this.state.collapsed && this.renderContent()}
@@ -56,19 +57,23 @@ export default class LinkCreator extends React.Component<Props, State> {
 
 	renderContent() {
 		return (
-			<div>
+			<div className="link-creator">
 				(excitingly) add a new link!
-				<div>
-					text:
+				<div className="input-area">
+					<span className="label">text: </span>
 					<input value={this.state.text} onChange={this.handleTextChange} />
-				</div>
-				<div>
-					image link:
+					<br/>
+					<span className="label">image link: </span>
 					<input value={this.state.imageUrl} onChange={this.handleImageChange} />
+					<br/>
+					<button onClick={this.hanldeSubmit}>
+						<i className="fa fa-plus-circle" aria-hidden="true"/>
+						add 
+					</button>
+					
+					{LinkPreview(this.state.text, this.state.imageUrl)}
 				</div>
 
-				{LinkPreview(this.state.text, this.state.imageUrl)}
-				<button onClick={this.hanldeSubmit}>add</button>
 			</div>
 		);
 	}
@@ -76,9 +81,9 @@ export default class LinkCreator extends React.Component<Props, State> {
 
 function LinkPreview(text: string, imageUrl: string) {
 	return (
-		<div>
-			<img src={imageUrl} />
-			<div>{text}</div>
+		<div className="preview-area">
+			<img className="link-img" src={imageUrl} />
+			<span>{text}</span>
 		</div>
 	);
 }

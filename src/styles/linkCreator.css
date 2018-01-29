@@ -1,0 +1,24 @@
+.link-creator .input-area{
+	text-align: left;
+
+	border: 1px solid black;
+	border-radius: 3px;	
+}
+
+.input-area {
+	padding: 8px;
+}
+
+.preview-area{
+	padding: 5px 0 0 0;
+	min-height: 80px;
+}
+
+.link-creator .link-img {
+	border: 1px solid black;
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin: 0 8px 2px 0;
+	vertical-align: text-top;
+}
