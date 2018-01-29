@@ -28,7 +28,7 @@ export default function reducer(state: StoreState, action: VoteAction): StoreSta
 		var newState = { ...state };
 		newState.votes[id] = { score: score };
 
-		if(!!state.loggedInUser) {
+		if (!!state.loggedInUser) {
 			const actionUserId = state.loggedInUser.userId;
 			const itemVotes = newState.userVotes[id] || {};
 			itemVotes[actionUserId] = true;

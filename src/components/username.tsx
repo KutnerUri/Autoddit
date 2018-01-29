@@ -7,7 +7,7 @@ export interface Props {
 export default function username(props: Props) {
 	return (
 		<span className="username">
-			{props.username || "unknown"}
+			{props.username || 'unknown'}
 		</span>
 	);
 }
