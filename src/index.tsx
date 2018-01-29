@@ -56,6 +56,9 @@ function genDefaultModel(): StoreState {
 		},
 		votes: {
 			'link1': { score: 7 }
+		},
+		userVotes: {
+			'link1': { 'user5': true }
 		}
 	};
 }

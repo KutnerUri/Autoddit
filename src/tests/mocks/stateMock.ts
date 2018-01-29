@@ -12,6 +12,8 @@ export default function getMockedStoreState(): IStoreState {
 			byId: {}
 		},
 		votes: {
+		},
+		userVotes: {
 		}
 	};
 }

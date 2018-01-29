@@ -41,4 +41,10 @@ export default interface StoreState {
 	votes: {
 		[index: string]: { score: number }
 	};
+
+	userVotes: {
+		[voteId: string]: {
+			[userId: string]: boolean
+		}
+	};
 }

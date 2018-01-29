@@ -23,6 +23,7 @@ it('renders without crashing', () => {
 
 function getMockModel(): StoreState {
 	return {
+		loggedInUser: { userId: 'moshe' },
 		links: {
 			byId: {
 				'link1': {
@@ -35,7 +36,8 @@ function getMockModel(): StoreState {
 			orderedIds: ['link1']
 		},
 		users: {
-			'user5': { username: 'bugatti' }
+			'user5': { username: 'bugatti' },
+			'moshe': { username: 'moshe' }
 		},
 		comments: {
 			byOwner: {
@@ -56,6 +58,9 @@ function getMockModel(): StoreState {
 		},
 		votes: {
 			'link1': { score: 7 }
+		},
+		userVotes: {
+			'link1': { 'user5': true }
 		}
 	};
 }

@@ -9,6 +9,7 @@ export interface Props {
 
 export interface ComponentProps {
 	score: number;
+	canUserVote: boolean;
 	upVote?: () => void;
 	downVote?: () => void;
 }
@@ -19,16 +20,31 @@ export class ItemVote extends React.PureComponent<ComponentProps, object> {
 
 		return (
 			<div className="votes">
-				<button onClick={props.upVote}>up</button>
+				{this.props.canUserVote &&
+					<button onClick={props.upVote}>up</button>
+				}
 				{props.score}
-				<button onClick={props.downVote}>down</button>
+				{this.props.canUserVote &&
+					<button onClick={props.downVote}>down</button>
+				}
 			</div>
 		);
 	}
 }
 
-export function mapStateToProps({ votes }: StoreState, { id }: Props): ComponentProps {
-	return votes[id] || { score: 0 };
+export function mapStateToProps({ votes, userVotes, loggedInUser }: StoreState, { id }: Props): ComponentProps {
+	var vote = votes[id] || { score: 0 };
+	var hasUserVoted = false;
+	if (!!loggedInUser) {
+		var userId = loggedInUser.userId;
+		var itemVotes = userVotes[id] || {};
+		hasUserVoted = !!itemVotes[userId];
+	}
+
+	return {
+		score: vote.score,
+		canUserVote: !hasUserVoted
+	};
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.VoteAction>, ownProps: Props) {
