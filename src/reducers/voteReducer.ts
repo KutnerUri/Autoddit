@@ -27,11 +27,13 @@ export default function reducer(state: StoreState, action: VoteAction): StoreSta
 	function genNewState(id: string, score: number): StoreState {
 		var newState = { ...state };
 		newState.votes[id] = { score: score };
-		
-		const actionUserId = state.loggedInUser.userId;
-		const itemVotes = newState.userVotes[id] || {};
-		itemVotes[actionUserId] = true;
-		newState.userVotes[id] = itemVotes;
+
+		if(!!state.loggedInUser) {
+			const actionUserId = state.loggedInUser.userId;
+			const itemVotes = newState.userVotes[id] || {};
+			itemVotes[actionUserId] = true;
+			newState.userVotes[id] = itemVotes;
+		}
 
 		return newState;
 	}
