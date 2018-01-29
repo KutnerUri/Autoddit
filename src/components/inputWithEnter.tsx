@@ -26,6 +26,7 @@ export default class InputWithEnter extends React.Component<Props, { val: string
 
 	handleSubmit() {
 		this.props.onSubmission(this.state.val);
+		this.setState({val: ''});
 	}
 
 	render() {
